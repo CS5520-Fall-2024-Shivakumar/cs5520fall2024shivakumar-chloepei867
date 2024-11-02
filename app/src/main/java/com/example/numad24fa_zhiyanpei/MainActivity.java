@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button aboutMeButton = findViewById(R.id.about_me_button);
         Button quicCalcButton = findViewById(R.id.quic_calc_button);
+        Button contactsCollectorButton = findViewById(R.id.contacts_collector_button);
+
 
 
         Context context = this;
@@ -37,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
         quicCalcButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, QuicCalcActivity.class);
+            startActivity(intent);
+        });
+
+        contactsCollectorButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ContactsCollectorActivity.class);
             startActivity(intent);
         });
     }
