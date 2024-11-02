@@ -2,6 +2,8 @@
     <string name="app_name">NUMAD24FA_ZhiyanPei</string>
     <string name="hello_word_text">Hello World!</string>
     <string name="about_me_text">About Me</string>
-    <string name="my_info">Name: Zhiyan Pei\nEmail: pei.zhiy@northeastern.edu</string>
+    <string name="my_name">Name: Zhiyan Pei</string>
+    <string name="my_email">Email: pei.zhiy@northeastern.edu</string>
+
     <string name="quic_calc">Quic Calc</string>
 </resources>

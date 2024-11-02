@@ -31,11 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         Context context = this;
         aboutMeButton.setOnClickListener(v -> {
-            String text = getString(R.string.my_info);
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            Intent intent = new Intent(MainActivity.this, AboutMeActivity.class);
+            startActivity(intent);
         });
 
         quicCalcButton.setOnClickListener(v -> {
