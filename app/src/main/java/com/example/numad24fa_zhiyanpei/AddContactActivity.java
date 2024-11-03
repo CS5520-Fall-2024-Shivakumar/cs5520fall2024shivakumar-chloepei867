@@ -17,12 +17,16 @@ public class AddContactActivity extends AppCompatActivity {
     private EditText nameInput, phoneInput;
     private FloatingActionButton fab;
 
-    String name, phone;
+    private String name, phone;
+
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
+
+        dbHelper = new DBHelper(this);
 
         nameInput = findViewById(R.id.nameInput);
         phoneInput = findViewById(R.id.phoneInput);
@@ -41,6 +45,14 @@ public class AddContactActivity extends AppCompatActivity {
 
         if (!name.isEmpty() || !phone.isEmpty()) {
             //todo: save data
+            long id = dbHelper.addContact(
+                  ""+name,
+                  ""+phone
+            );
+
+            //TODO: create a snackbar to confirm successful contact creation. Include an action button within the Snackbar that performs a task related to your design.
+            Toast.makeText(getApplicationContext(), "Inserted "+id, Toast.LENGTH_SHORT).show();
+
         } else {
             Toast.makeText(getApplicationContext(), "Please input name or phone...", Toast.LENGTH_LONG).show();
         }

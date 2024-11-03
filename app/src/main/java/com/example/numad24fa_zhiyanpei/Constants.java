@@ -14,7 +14,7 @@ public class Constants {
 
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "( "
             + C_NAME + " TEXT, "
-            + C_PHONE + " TEXT, "
+            + C_PHONE + " TEXT"
             + " );";
 
 

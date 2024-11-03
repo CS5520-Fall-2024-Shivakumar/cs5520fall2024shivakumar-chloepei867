@@ -52,7 +52,9 @@
             android:drawablePadding="@dimen/_5sdp"
             android:inputType="textPersonName"
             android:padding="@dimen/_10sdp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+        />
 
         <EditText
             android:id="@+id/phoneInput"
@@ -65,7 +67,9 @@
             android:drawablePadding="@dimen/_5sdp"
             android:inputType="phone"
             android:padding="@dimen/_10sdp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+        />
 
 
     </LinearLayout>
