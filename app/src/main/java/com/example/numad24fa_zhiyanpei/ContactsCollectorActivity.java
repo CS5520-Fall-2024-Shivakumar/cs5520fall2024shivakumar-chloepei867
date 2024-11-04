@@ -10,14 +10,20 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ContactsCollectorActivity extends AppCompatActivity {
 
-    FloatingActionButton fab;
-    RecyclerView contactRecyclerView;
+    private FloatingActionButton fab;
+    private RecyclerView contactRecyclerView;
+
+    private DBHelper dbHelper;
+
+    private ContactAdapter contactAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_contacts_collector);
+
+        dbHelper = new DBHelper(this);
 
         fab = findViewById(R.id.fab);
         contactRecyclerView = findViewById(R.id.contact_recylerView);
@@ -29,7 +35,21 @@ public class ContactsCollectorActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        loadData();
 
+
+    }
+
+    private void loadData() {
+        contactAdapter = new ContactAdapter(this, dbHelper.getAllData());
+        contactRecyclerView.setAdapter(contactAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //refresh data
+        loadData();
     }
 }
 

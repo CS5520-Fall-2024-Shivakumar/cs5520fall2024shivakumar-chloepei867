@@ -17,6 +17,7 @@ public class AddContactActivity extends AppCompatActivity {
     private EditText nameInput, phoneInput;
     private FloatingActionButton fab;
 
+
     private String name, phone;
 
     private DBHelper dbHelper;
@@ -45,10 +46,7 @@ public class AddContactActivity extends AppCompatActivity {
 
         if (!name.isEmpty() || !phone.isEmpty()) {
             //todo: save data
-            long id = dbHelper.addContact(
-                  ""+name,
-                  ""+phone
-            );
+            long id = dbHelper.addContact(""+name, ""+phone);
 
             //TODO: create a snackbar to confirm successful contact creation. Include an action button within the Snackbar that performs a task related to your design.
             Toast.makeText(getApplicationContext(), "Inserted "+id, Toast.LENGTH_SHORT).show();

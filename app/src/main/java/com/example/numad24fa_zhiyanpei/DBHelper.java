@@ -2,10 +2,14 @@ package com.example.numad24fa_zhiyanpei;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -37,7 +41,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //to save data
         ContentValues contentValues = new ContentValues();
-
         contentValues.put(Constants.C_NAME, name);
         contentValues.put(Constants.C_PHONE, phone);
 
@@ -45,5 +48,28 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
 
         return id;
+    }
+
+    //get all data
+    public List<ContactModel> getAllData() {
+        List<ContactModel> contactList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + Constants.TABLE_NAME;
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                ContactModel contactModel = new ContactModel(
+                        ""+cursor.getInt(cursor.getColumnIndexOrThrow(Constants.C_ID)),
+                        ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.C_NAME)),
+                        ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.C_PHONE))
+
+                );
+                contactList.add(contactModel);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        return contactList;
     }
 }
