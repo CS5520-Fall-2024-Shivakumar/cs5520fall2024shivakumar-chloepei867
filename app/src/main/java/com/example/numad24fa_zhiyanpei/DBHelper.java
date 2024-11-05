@@ -56,20 +56,28 @@ public class DBHelper extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + Constants.TABLE_NAME;
 
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = null;
 
-        if (cursor.moveToFirst()) {
-            do {
-                ContactModel contactModel = new ContactModel(
-                        ""+cursor.getInt(cursor.getColumnIndexOrThrow(Constants.C_ID)),
-                        ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.C_NAME)),
-                        ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.C_PHONE))
+        try {
+            cursor = db.rawQuery(selectQuery, null);
 
-                );
-                contactList.add(contactModel);
-            } while (cursor.moveToNext());
+            if (cursor.moveToFirst()) {
+                do {
+                    ContactModel contactModel = new ContactModel(
+                            ""+cursor.getInt(cursor.getColumnIndexOrThrow(Constants.C_ID)),
+                            ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.C_NAME)),
+                            ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.C_PHONE))
+
+                    );
+                    contactList.add(contactModel);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
         }
-        db.close();
         return contactList;
     }
 }

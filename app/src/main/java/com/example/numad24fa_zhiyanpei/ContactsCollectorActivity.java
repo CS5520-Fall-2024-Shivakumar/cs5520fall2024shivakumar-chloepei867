@@ -1,7 +1,10 @@
 package com.example.numad24fa_zhiyanpei;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +15,7 @@ public class ContactsCollectorActivity extends AppCompatActivity {
 
     private FloatingActionButton fab;
     private RecyclerView contactRecyclerView;
+    ImageView dialImage;
 
     private DBHelper dbHelper;
 
@@ -29,15 +33,12 @@ public class ContactsCollectorActivity extends AppCompatActivity {
         contactRecyclerView = findViewById(R.id.contact_recylerView);
         contactRecyclerView.setHasFixedSize(true);
 
-
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(ContactsCollectorActivity.this, AddContactActivity.class);
             startActivity(intent);
         });
 
         loadData();
-
-
     }
 
     private void loadData() {

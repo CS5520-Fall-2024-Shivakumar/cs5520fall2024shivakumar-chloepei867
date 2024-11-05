@@ -43,5 +43,9 @@ dependencies {
     implementation("com.intuit.sdp:sdp-android:1.1.1")
     implementation("com.intuit.ssp:ssp-android:1.1.1")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+//    implementation("com.github.chauthai:swipe-reveal-layout:1.4.1")
+//    implementation("androidx.viewpager2:viewpager2:1.1.0")
+//    implementation ("com.google.android.material:material:1.13.0-alpha07")
 
 }
+

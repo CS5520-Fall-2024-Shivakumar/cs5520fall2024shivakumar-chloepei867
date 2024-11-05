@@ -17,9 +17,4 @@ public class Constants {
             + C_NAME + " TEXT, "
             + C_PHONE + " TEXT"
             + " );";
-
-
-    //create database helper class for CRUD
-
-
 }

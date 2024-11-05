@@ -1,11 +1,14 @@
 package com.example.numad24fa_zhiyanpei;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,7 +42,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.contactName.setText(name);
         holder.contactPhone.setText(phone);
         holder.contactDial.setOnClickListener(v -> {
-            //TODO: to implement the dialing function
+            if (!phone.isEmpty()) {
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+                dialIntent.setData(Uri.parse("tel:" + phone));
+                context.startActivity(dialIntent);
+            } else {
+                Toast.makeText(context, "Invalid phone number", Toast.LENGTH_SHORT).show();
+            }
         });
 
 
