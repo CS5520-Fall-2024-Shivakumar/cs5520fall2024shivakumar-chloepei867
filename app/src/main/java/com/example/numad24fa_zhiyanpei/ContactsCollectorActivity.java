@@ -1,21 +1,34 @@
 package com.example.numad24fa_zhiyanpei;
 
+
+import androidx.appcompat.widget.Toolbar;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class ContactsCollectorActivity extends AppCompatActivity {
+public class ContactsCollectorActivity extends BaseActivity {
 
     private FloatingActionButton fab;
     private RecyclerView contactRecyclerView;
-    ImageView dialImage;
+    private ImageView dialImage;
+    private Toolbar toolbar;
 
     private DBHelper dbHelper;
 
@@ -32,6 +45,8 @@ public class ContactsCollectorActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         contactRecyclerView = findViewById(R.id.contact_recylerView);
         contactRecyclerView.setHasFixedSize(true);
+        toolbar = findViewById(R.id.toolbar);
+        setupToolbar(toolbar);
 
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(ContactsCollectorActivity.this, AddContactActivity.class);
@@ -52,8 +67,8 @@ public class ContactsCollectorActivity extends AppCompatActivity {
         //refresh data
         loadData();
     }
-}
 
+}
 
 
 

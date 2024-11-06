@@ -10,6 +10,8 @@
     android:backgroundTint="@color/black"
     >
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="68dp">
@@ -68,4 +70,7 @@
 
     </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
+
+
+
+    </androidx.cardview.widget.CardView>

@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -14,11 +15,11 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-public class AddContactActivity extends AppCompatActivity {
+public class AddContactActivity extends BaseActivity {
 
     private EditText nameInput, phoneInput;
     private FloatingActionButton fab;
-
+    Toolbar toolbar;
 
     private String name, phone;
 
@@ -39,7 +40,8 @@ public class AddContactActivity extends AppCompatActivity {
             saveData();
         });
 
-
+        toolbar = findViewById(R.id.toolbar);
+        setupToolbar(toolbar);
     }
 
     private void saveData() {

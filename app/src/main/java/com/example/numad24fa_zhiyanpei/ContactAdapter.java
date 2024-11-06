@@ -73,4 +73,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         }
     }
+
+//    public ContactModel getContactAt(int position) {
+//        return contactList.get(position);
+//    }
+//
+//    public void removeContactAt(int position) {
+//        contactList.remove(position);
+//    }
 }
