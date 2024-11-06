@@ -1,6 +1,7 @@
 package com.example.numad24fa_zhiyanpei;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 public class AddContactActivity extends AppCompatActivity {
 
@@ -45,12 +47,23 @@ public class AddContactActivity extends AppCompatActivity {
         phone = phoneInput.getText().toString();
 
         if (!name.isEmpty() || !phone.isEmpty()) {
-            //todo: save data
             long id = dbHelper.addContact(""+name, ""+phone);
 
             //TODO: create a snackbar to confirm successful contact creation. Include an action button within the Snackbar that performs a task related to your design.
-            Toast.makeText(getApplicationContext(), "Inserted "+id, Toast.LENGTH_SHORT).show();
-
+            if (id > 0) {
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.fab), "Contact created successfully!", Snackbar.LENGTH_LONG)
+                        .setAction("Undo", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //TODO: create deleteContact(id) function
+//                                dbHelper.deleteContact(id); // 撤销操作，删除刚刚添加的联系人
+                                Toast.makeText(getApplicationContext(), "Contact creation undone", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                snackbar.show();
+            } else {
+                Snackbar.make(findViewById(R.id.fab), "Failed to create contact", Snackbar.LENGTH_LONG).show();
+            }
         } else {
             Toast.makeText(getApplicationContext(), "Please input name or phone...", Toast.LENGTH_LONG).show();
         }
