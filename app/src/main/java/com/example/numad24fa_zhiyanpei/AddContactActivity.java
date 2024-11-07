@@ -12,13 +12,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 public class AddContactActivity extends BaseActivity {
 
     private EditText nameInput, phoneInput;
-    private FloatingActionButton fab;
+    private MaterialButton fab;
     Toolbar toolbar;
 
     private String name, phone;

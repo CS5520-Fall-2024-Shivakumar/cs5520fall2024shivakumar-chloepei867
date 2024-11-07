@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Objects;
 
-public class QuicCalcActivity extends AppCompatActivity {
+public class QuicCalcActivity extends BaseActivity {
 
     TextView display;
 //    String currentText = display.getText().toString();

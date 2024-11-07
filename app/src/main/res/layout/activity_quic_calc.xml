@@ -7,6 +7,16 @@
     tools:context=".QuicCalcActivity"
     android:id="@+id/quic_calc">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="Contacts Collector"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_24"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Display at the top of the calculator -->
 
     <!-- Guidelines for grid structure -->

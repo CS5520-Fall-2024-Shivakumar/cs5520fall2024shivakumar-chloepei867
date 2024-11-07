@@ -7,4 +7,5 @@
 
     <string name="quic_calc">Quic Calc</string>
     <string name="contacts_collector">Contacts Collector</string>
+    <string name="save">Save</string>
 </resources>
